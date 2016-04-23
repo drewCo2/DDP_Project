@@ -23,9 +23,12 @@ shinyUI(
       ),
     
       mainPanel(
-      plotOutput("relPlot")
-      
-      #         verbatimTextOutput("slope + intercept")
+        plotOutput("relPlot"),
+        verbatimTextOutput("warnMsg"),
+        
+        span("Slope + Intercept of fitted line:"),
+        verbatimTextOutput("slope"),
+        verbatimTextOutput("intercept")
       )
     )
   )

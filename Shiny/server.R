@@ -21,7 +21,7 @@ shinyServer(
       }
       else
       {
-        output$warnMsg <- renderPrint("")
+        output$warnMsg <- renderPrint("Selection OK")
       }
       
       # create a formula and fit a model.
@@ -46,9 +46,11 @@ shinyServer(
 
 
 
-# fit<-lm(mpg~disp,data=mtcars)
-# plot(mtcars[,"disp"],mtcars[,"mpg"])
-# abline(fit,col="red",lwd=2)
-# 
-# slope = coef(fit)[[2]]
-# slope
+fit<-lm(mpg~disp,data=mtcars)
+plot(mtcars[,"disp"],mtcars[,"mpg"])
+abline(fit,col="red",lwd=2)
+
+ce<-coef(fit)
+slope = ce[[2]]
+ce[[1]]
+slope
