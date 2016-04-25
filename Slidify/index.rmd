@@ -1,0 +1,66 @@
+---
+title       : MTCars Data Explorer
+subtitle    : Exploring interesting relationships in cars
+author      : Andrew A. Ritz
+job         : Programmer
+framework   : io2012        
+highlighter : prettify
+mode        : selfcontained # {standalone, draft}
+knit        : slidify::knit2slides
+---
+
+## Introduction
+
+I have created a Shiny application that will allow a user to interactively explore the linear relationships
+between variables in the mtcars data set.  The data was comes from the 1974 Motor Trend US magazine, and comprises fuel consumption and 10 other variables of 32 different automobiles.  All of the cars in question are 1973–1974 models, so if you are thinking of buying, or own a classic car, this is the app for you!
+
+
+---
+## What does it do?
+
+The application takes user input of two of the possible variables and creates a linear model from that data.
+A scatterplot of the relationship, as well as the slope and intercept of the relationship are conveniently plotted.  The slope and intercept are also displayed in numeric format for increased interpretability.
+
+---
+## Example
+
+Here we can see how mpg is affected by the weight of the vehicle.  Very good to know for the budget minded shopper!
+
+```{r, echo=FALSE}
+
+v1<-"mpg"
+v2<-"wt"
+
+data(mtcars)
+fit<-lm(mpg~wt, data=mtcars)
+
+ce<-coef(fit)
+# output$slope = renderPrint(ce[[2]])
+#output$intercept = renderPrint(ce[[1]])
+
+#Plot variables.
+title<-paste(v1, "vs.", v2)
+
+plot(mtcars[,v2],mtcars[,v1], main=title, xlab=v2, ylab=v1)
+abline(fit,col="red",lwd=2)
+
+```
+
+---
+## Conclusion
+
+MTCars Data Explorer is a great application that can give the user new knowledge and interesting insights about
+how different aspectes of their vehicles are related.  With over 100 possible comparisons, the user is sure to
+be entertained and enlightened for hours on end!
+
+
+---
+## Try It now!
+
+Follow the link below to start your exploration of this incredible data set!  What new things can you learn about vehicles from the past!
+
+<link-1>
+
+If you are interested in the technical details of how this app works, or want to make this application even better, please visit the [GitHub](https://github.com/drewCo2/DDP_Project) project page!
+
+[GitHub Project Page](https://github.com/drewCo2/DDP_Project)

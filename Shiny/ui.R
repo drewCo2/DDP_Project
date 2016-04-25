@@ -12,7 +12,7 @@ shinyUI(
   fluidPage(
     
     # Main page title
-    titlePanel("mtcars relationship explorations"),
+    titlePanel("MTCars Data Explorer"),
     
     sidebarLayout(
         sidebarPanel(
